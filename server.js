@@ -9,7 +9,7 @@
 /**
  * Module dependencies
  */
-
+require('newrelic');
 require('dotenv').config();
 
 const fs = require('fs');
@@ -28,6 +28,13 @@ const app = express();
  */
 
 module.exports = app;
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 // Bootstrap models
 fs.readdirSync(models)

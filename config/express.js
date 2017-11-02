@@ -37,8 +37,9 @@ module.exports = function (app, passport) {
   }));
 
   app.use(cors({
-    origin: ['http://localhost:3000', 'https://reboil-demo.herokuapp.com'],
+    origin: ['http://localhost:3000', 'https://reboil-demo.herokuapp.com', 'https://bam.nr-data.net'],
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
     credentials: true
   }));
 
